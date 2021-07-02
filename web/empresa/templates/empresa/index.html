@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+<title> Empresa </title> 
+{% load static %}
+<link rel='stylesheet' href="{% static 'empresa/css/empresa.css' %}">
+{% endblock %}
+
+
+{% block fashion %}
+    <div style = "height:180px"> <!-- para bajar el contenido-->
+    </div> 
+{% endblock %}
+{% load static %}
+{% block content %}
+<div class="empresa_contenido">
+    {% for empresa in empresas %}
+        <h2>{{ empresa.title }}</h2>
+        <img src="{{ empresa.image.url }}">
+        {{empresa.content | safe}}
+        
+    {% endfor %}
+</div>
+
+{% endblock %}
